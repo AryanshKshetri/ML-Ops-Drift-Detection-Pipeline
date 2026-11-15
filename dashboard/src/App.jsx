@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import Drift from "./pages/Drift.jsx";
+import Performance from "./pages/Performance.jsx";
 import ComingSoon from "./pages/ComingSoon.jsx";
 
 export default function App() {
@@ -8,10 +9,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Drift />} />
-        <Route
-          path="performance"
-          element={<ComingSoon title="Performance" feeds={["GET /api/performance", "GET /api/labels/coverage"]} />}
-        />
+        <Route path="performance" element={<Performance />} />
         <Route
           path="retraining"
           element={<ComingSoon title="Retraining" feeds={["GET /api/retrain/events"]} />}
