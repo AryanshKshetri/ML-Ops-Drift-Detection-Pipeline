@@ -1,6 +1,6 @@
 import { useRange, RANGES } from "./Layout.jsx";
 
-export default function PageHeader({ title, sub, status }) {
+export default function PageHeader({ title, sub, status, noRange }) {
   const { minutes, setMinutes } = useRange();
   return (
     <header className="head">
@@ -9,13 +9,15 @@ export default function PageHeader({ title, sub, status }) {
         <div className="sub">{sub}</div>
       </div>
       <div className="ctrl">
-        <div className="seg">
-          {RANGES.map(([label, value]) => (
-            <button key={label} className={value === minutes ? "on" : ""} onClick={() => setMinutes(value)}>
-              {label}
-            </button>
-          ))}
-        </div>
+        {!noRange && (
+          <div className="seg">
+            {RANGES.map(([label, value]) => (
+              <button key={label} className={value === minutes ? "on" : ""} onClick={() => setMinutes(value)}>
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
         {status && (
           <div className="pill">
             <i style={{ background: status.color }} />

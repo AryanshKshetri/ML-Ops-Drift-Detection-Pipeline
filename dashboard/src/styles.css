@@ -94,3 +94,27 @@ body { background: var(--paper); color: var(--ink); font-family: var(--sans); fo
 .cm .lab { font-size: 8.5px; }
 .cm-cell { height: 62px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--serif); font-size: 26px; line-height: 1.05; }
 .cm-cell small { font-family: var(--mono); font-size: 9.5px; color: var(--ink2); margin-top: 2px; }
+
+.table-wrap { overflow-x: auto; }
+.tbl { border-collapse: collapse; width: 100%; }
+.tbl th { font-family: var(--mono); font-weight: 400; font-size: 9.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink2); text-align: left; padding: 0 10px 11px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+.tbl td { padding: 12px 10px; border-bottom: 1px solid var(--hair); font-size: 13px; vertical-align: middle; }
+.tbl td.m { font-family: var(--mono); font-size: 11.5px; white-space: nowrap; }
+.tbl td.b { font-weight: 700; }
+.tbl tbody tr { cursor: pointer; }
+.tbl tbody tr:hover { background: var(--rail); }
+.tbl tbody tr.sel { background: var(--rail); box-shadow: inset 3px 0 0 var(--ink); }
+.kv { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--hair); font-size: 13px; }
+.kv span:first-child { color: var(--ink2); }
+.kv span:last-child { text-align: right; font-family: var(--mono); font-size: 11.5px; }
+.mono-small { font-family: var(--mono); font-size: 10.5px; color: var(--ink2); margin-top: 14px; }
+.muted-note { color: var(--ink2); font-size: 12px; line-height: 1.55; margin-top: 16px; }
+.tl { position: relative; height: 66px; margin: 12px 14px 0; }
+.tl-line { position: absolute; left: 0; right: 0; top: 26px; height: 1px; background: var(--ink); }
+.tl-tick { position: absolute; top: 20px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; color: var(--ink2); }
+.tl-tick i { display: block; width: 1px; height: 12px; background: var(--ink); }
+.tl-dot { position: absolute; top: 19px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid; transform: translateX(-50%); }
+.ver { font-family: var(--serif); font-style: italic; font-size: 26px; }
+.ver.small { font-size: 20px; width: 40px; }
+.vbar { display: grid; grid-template-columns: 44px minmax(0, 1fr) 40px; align-items: center; gap: 10px; height: 38px; }
+.vbar .mono-small { margin: 0; text-align: right; }
