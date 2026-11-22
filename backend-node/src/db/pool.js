@@ -5,11 +5,16 @@ const { Pool } = pg;
 
 export const pool = new Pool({
   connectionString: config.databaseUrl,
+  max: 5,
+  idleTimeoutMillis: 10000,
+  connectionTimeoutMillis: 10000,
+  keepAlive: true,
 });
 
 pool.on("error", (err) => {
-  console.error("Unexpected error on idle PostgreSQL client", err);
-  process.exit(1);
+  // Neon closes idle connections when its compute suspends.
+  // The pool opens a new connection on the next query, so do not exit.
+  console.error("Idle PostgreSQL client error:", err.message);
 });
 
 export async function testConnection() {
