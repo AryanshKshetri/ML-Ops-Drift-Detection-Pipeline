@@ -20,6 +20,20 @@ services:
       timeout: 5s
       retries: 10
 
+  ml-service:
+    build: ./ml-service
+    container_name: mlops_ml
+    restart: unless-stopped
+    environment:
+      MODEL_DIR: /app/saved_model
+    volumes:
+      # The trained model lives on your disk, so it survives rebuilds.
+      - ./ml-service/saved_model:/app/saved_model
+      # The Telco CSV, used only by the training command.
+      - ./data:/data:ro
+    ports:
+      - "8000:8000"
+
   api:
     build: ./backend-node
     container_name: mlops_api
@@ -27,11 +41,14 @@ services:
     depends_on:
       timescaledb:
         condition: service_healthy
+      ml-service:
+        condition: service_started
     environment:
       PORT: "4000"
       DATABASE_URL: postgresql://mlops_user:mlops_pass@timescaledb:5432/mlops_db
-      # The API serves its own mock model for now. Point this at the ML service later.
-      ML_SERVICE_URL: http://localhost:4000/mock-ml
+      # The API now calls the real churn model. To go back to the mock model,
+      # set this to http://localhost:4000/mock-ml
+      ML_SERVICE_URL: http://ml-service:8000
       ADMIN_API_KEY: ${ADMIN_API_KEY:-dev-admin-key}
     ports:
       - "4000:4000"
