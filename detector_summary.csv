@@ -1,0 +1,6 @@
+﻿detector_name,windows,mean_score,alarms,alarm_rate_pct,mean_compute_ms
+domain_classifier,3944,0.5658,113,2.87,751.45
+js_divergence,3944,0.0256,116,2.94,8.02
+ks_test,3944,0.0658,139,3.52,4.50
+psi,3944,0.0831,126,3.19,6.02
+wasserstein,3944,0.0428,141,3.58,11.00

@@ -1,0 +1,23 @@
+{
+  "features": {
+    "gender": "Female",
+    "tenure": 33,
+    "Partner": "Yes",
+    "Contract": "Two year",
+    "Dependents": "No",
+    "StreamingTV": "Yes",
+    "TechSupport": "Yes",
+    "OnlineBackup": "No",
+    "PhoneService": "No",
+    "TotalCharges": 2016.3,
+    "MultipleLines": "No phone service",
+    "PaymentMethod": "Bank transfer (automatic)",
+    "SeniorCitizen": 0,
+    "MonthlyCharges": 59.55,
+    "OnlineSecurity": "Yes",
+    "InternetService": "DSL",
+    "StreamingMovies": "Yes",
+    "DeviceProtection": "Yes",
+    "PaperlessBilling": "No"
+  }
+}
